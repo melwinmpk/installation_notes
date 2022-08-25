@@ -1,8 +1,9 @@
+https://phoenixnap.com/kb/install-hadoop-ubuntu
 I did not create seperate user (i.e hdoop)
 
 forward the respective ports in the virchual machine (8088-hadoop,9870-datanode, 9864-namenode)
 
-Note in the bashsrc there is slight change
+Note in the bashsrc there is slight change in the bash src
 
 #Hadoop Related Options
 export HADOOP_HOME=/home/ubuntu/hadoop-3.2.4
