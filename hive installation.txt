@@ -1,0 +1,22 @@
+https://phoenixnap.com/kb/install-hive-on-ubuntu
+
+Melwin you faced the error in  Step 6: 
+
+before running Step 6 exexute the below command then execute step 6 
+$ rm $HIVE_HOME/lib/guava-19.0.jar
+$ cp $HADOOP_HOME/share/hadoop/hdfs/lib/guava-27.0-jre.jar $HIVE_HOME/lib/
+
+
+one more error you will get 
+Solution 
+https://stackoverflow.com/questions/27099898/java-net-urisyntaxexception-when-starting-hive
+place  the blow code on top in hive-site.xml
+  <property>
+    <name>system:java.io.tmpdir</name>
+    <value>/tmp/hive/java</value>
+  </property>
+  <property>
+    <name>system:user.name</name>
+    <value>${user.name}</value>
+  </property>
+

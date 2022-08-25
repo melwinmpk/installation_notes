@@ -1,0 +1,60 @@
+Basic Ground work
+
+0) sudo apt install python3-pip
+1) Create Python Environment to setup Airflow 
+	--> sudo apt install virtualenv
+      --> mkdir python-environments
+      --> cd python-environments
+      --> virtualenv --python=python3 airflow
+	a) Always remember activate the Airflow environment
+		-->  source /home/ubuntu/python-environments/airflow/bin/activate
+
+Install Basic Airflow Installation
+
+2) Install Airflow inside the Environment
+	--> sudo pip3 install "apache-airflow==2.3.2"
+3) airflow db init
+4) Crate a admin user (username => admin, password => admin) 
+airflow users create \
+  --username admin \
+  --role Admin \
+  --email admin@gmail.com \
+  --firstname admin \
+  --lastname admin \
+  --password admin
+5) to run the airflow 
+	--> airflow webserver (In new terminal in activated airflow environment)
+	--> airflow scheduler (In new terminal in activated airflow environment)
+
+Install Postgress and Link it to the Airflow
+https://newt-tan.medium.com/apache-airflow-installation-based-on-postgresql-database-26549b154d8
+
+7) pip install apache-airflow['postgres'] (In activated airflow environment)
+8) Update the "executor" in aiflow.cfg file to (sequentialexecutor to localexecutor) 
+	executor = LocalExecutor
+9) Update the sqlalchemy connect
+10) sudo apt-get install postgresql postgresql-contrib
+11) sudo -u postgres psql
+12) postgres=# CREATE USER airflow PASSWORD 'airflow';
+#CREATE ROLE
+postgres=# CREATE DATABASE airflow;
+#CREATE DATABASE
+postgres=# GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO airflow;
+#GRANT
+postgres=# \du
+postgres=# \l
+
+Update as per mentioned in the link above
+
+13) sudo service postgresql restart
+
+again
+airflow db init
+
+airflow users create \
+  --username admin \
+  --role Admin \
+  --email admin@gmail.com \
+  --firstname admin \
+  --lastname admin \
+  --password admin

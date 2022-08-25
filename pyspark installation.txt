@@ -1,0 +1,18 @@
+https://towardsdatascience.com/installing-pyspark-with-java-8-on-ubuntu-18-04-6a9dea915b5b
+
+make sure you are downloading the compatable one
+
+in seperate environment install jupyter notebook
+
+remember 
+export SPARK_HOME=/home/ubuntu/spark-3.2.2-bin-hadoop3.2
+export PATH=$PATH:$SPARK_HOME/bin
+export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH
+export PYSPARK_DRIVER_PYTHON="jupyter"
+export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
+export PYSPARK_PYTHON=python3
+export PATH=$PATH:$JAVA_HOME/jre/bin 
+
+
+after activating that environment try running the pyspark 
+automatically the jupyter notebook opens
